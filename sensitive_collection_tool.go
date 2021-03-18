@@ -35,11 +35,36 @@ func readFile(filepath string) string {
 }
 
 func create_mail_template(now time.Time) {
-		merge := now.Format("2006-01-02 15:04:05") + "\n"
+		location := time.FixedZone("Asia/Tokyo", 9*60*60)
+		now = now.In(location)
+		merge := now.String() + "\n"
 		merge = merge + mergeFiles("passwd", "cat /etc/passwd")
 		merge = merge + mergeFiles("group", "cat /etc/group")
 		merge = merge + mergeFiles("mysql", "select Host, User from mysql.user;")
-		fmt.Println(merge)
+		slice := strings.Split(merge, "\n")
+		lines := []string{}
+		for _, str := range slice {
+			if !strings.HasPrefix(str, "#") {
+				lines = append(lines, str + "\n")
+			}
+		}
+
+		b := []byte{}
+		for _, line := range lines {
+				if line == "\n" {
+					continue
+				}
+				ll := []byte(line)
+				for _, l := range ll {
+						b = append(b, l)
+				}
+		}
+
+		err := ioutil.WriteFile("output_mail.txt", b, 0666)
+		if err != nil {
+				fmt.Println(os.Stderr, err)
+				os.Exit(1)
+		}
 }
 
 func mergeFiles(cmd_type string, cmd string) string {
