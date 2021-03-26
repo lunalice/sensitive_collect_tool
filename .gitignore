@@ -1,3 +1,5 @@
 settings.json
 tmp/*
 output_mail.txt
+cloudformation/*
+config_files/*

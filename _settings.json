@@ -1,7 +1,28 @@
 {
-  "DATABASE_USER": "",
-  "DATABASE_HOST": "",
-  "DATABASE_PORT": "",
-  "DATABASE_NAME": "",
-  "DATABASE_PASSWORD": ""
+  "FOO": {
+    "DATABASE_USER": "",
+    "DATABASE_HOST": "",
+    "DATABASE_PORT": "",
+    "DATABASE_NAME": "",
+    "DATABASE_PASSWORD": "",
+    "ACCESS_KEY_ID": "",
+    "SECRET_ACCESS_KEY": "",
+    "TOPIC_ARN": "",
+    "REGION": "",
+    "SSH_USER": "",
+    "SSH_HOST": ""
+  },
+  "BAR": {
+    "DATABASE_USER": "",
+    "DATABASE_HOST": "",
+    "DATABASE_PORT": "",
+    "DATABASE_NAME": "",
+    "DATABASE_PASSWORD": "",
+    "ACCESS_KEY_ID": "",
+    "SECRET_ACCESS_KEY": "",
+    "TOPIC_ARN": "",
+    "REGION": "",
+    "SSH_USER": "",
+    "SSH_HOST": ""
+  }
 }
